@@ -143,28 +143,32 @@ export default function Home() {
                 company: "Symmetry Commerce",
                 period: "May-Aug 2026",
                 details: "Shopify migrations.",
+                skills: [],
               },
               {
                 role: "Software Engineering Intern",
                 company: "Kenna Technologies",
                 period: "Sep-Dec 2025",
                 details: "Full stack app dev.",
+                skills: ["TypeScript", "React", "Node.js", "JavaScript", "SQL", "IBM", "AWS", "Jenkins"],
               },
               {
                 role: "Software Engineer",
                 company: "Electrium Mobility",
                 period: "Apr-Dec 2025",
                 details: "Building Electrimap.",
+                skills: ["Next.js", "Firebase", "Cloud Firestore", "TypeScript"],
               },
               {
                 role: "Engineering Intern",
                 company: "Sable",
                 period: "Jan-Apr 2025",
                 details: "PM & Data.",
+                skills: [],
               },
             ].map((item) => (
               <article
-                key={item.role}
+                key={`${item.role}-${item.company}`}
                 className="glass-panel group rounded-2xl border border-white/10 p-6 transition duration-300 hover:-translate-y-1 hover:border-violet-300/60"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -173,6 +177,14 @@ export default function Home() {
                 </div>
                 <p className="mt-1 text-sm text-slate-300">{item.company}</p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-300/90">{item.details}</p>
+                {item.skills.length > 0 ? (
+                  <div className="mt-4 border-t border-white/10 pt-3">
+                    <p className="mb-2 text-xs font-semibold tracking-[0.14em] text-violet-200 uppercase">
+                      Skills
+                    </p>
+                    <p className="text-sm text-slate-300/95">{item.skills.join(", ")}</p>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>

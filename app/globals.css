@@ -208,14 +208,14 @@ body {
 }
 
 .wave-svg-back {
-  opacity: 0.56;
+  opacity: 0.28;
   filter: blur(2px) drop-shadow(0 0 22px rgb(139 92 246 / 0.42));
   animation: wave-shift-back 16s ease-in-out infinite alternate;
   will-change: transform;
 }
 
 .wave-svg-front {
-  opacity: 0.66;
+  opacity: 0.33;
   filter: blur(0.1px) drop-shadow(0 0 24px rgb(216 180 254 / 0.62));
   animation: wave-shift-front 12s ease-in-out infinite alternate;
   will-change: transform;
@@ -228,18 +228,18 @@ body {
 
 .wave-path-back {
   fill: url(#waveFillBack);
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 .wave-path-mid {
   fill: url(#waveFillMid);
   filter: blur(0.3px);
-  opacity: 0.62;
+  opacity: 0.31;
 }
 
 .wave-path-front {
   fill: url(#waveFillFront);
-  opacity: 0.68;
+  opacity: 0.34;
 }
 
 @keyframes wave-shift-front {
