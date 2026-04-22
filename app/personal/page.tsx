@@ -120,6 +120,12 @@ export default function PersonalPage() {
             >
               Hackathons
             </Link>
+            <Link
+              href="/personal/research"
+              className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
+            >
+              Research
+            </Link>
           </div>
         </div>
       </main>
