@@ -212,6 +212,12 @@ export default function Home() {
         <section id="contact" className="space-y-6 pb-12">
           <h2 className="text-3xl font-semibold md:text-4xl">Contact Me</h2>
           <div className="flex flex-wrap gap-3">
+            <a className="contact-pill inline-flex items-center gap-2" href="mailto:c3reddy@uwaterloo.ca">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+                <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.22-.25 6.42 4.8a.6.6 0 0 0 .72 0l6.42-4.8a1.25 1.25 0 0 0-.53-.1H5.75c-.19 0-.37.04-.53.1Zm14.28 1.24-5.93 4.43a2.1 2.1 0 0 1-2.54 0L5.1 7.74a1.3 1.3 0 0 0-.1.51v9a1.25 1.25 0 0 0 1.25 1.25h12.5A1.25 1.25 0 0 0 20 17.25v-9c0-.19-.04-.37-.1-.51Z" />
+              </svg>
+              c3reddy@uwaterloo.ca
+            </a>
             <a
               className="contact-pill inline-flex items-center gap-2"
               href="https://www.linkedin.com/in/chahana-reddy-952a43281"

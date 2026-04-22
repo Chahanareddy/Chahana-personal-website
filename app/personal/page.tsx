@@ -96,7 +96,7 @@ export default function PersonalPage() {
           <p className="text-xs font-semibold tracking-[0.22em] text-violet-200 uppercase">
             Personal Space
           </p>
-          <h1 className="text-4xl font-semibold md:text-6xl">Welcome to my other world!</h1>
+          <h1 className="text-4xl font-semibold md:text-6xl">Welcome to the other side</h1>
           <p className="max-w-2xl text-base text-slate-300 md:text-lg">
             Explore my personal life through hobbies, side projects, and what I am up to!
           </p>
@@ -119,12 +119,6 @@ export default function PersonalPage() {
               className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
             >
               Hackathons
-            </Link>
-            <Link
-              href="/personal/research"
-              className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
-            >
-              Research
             </Link>
           </div>
         </div>

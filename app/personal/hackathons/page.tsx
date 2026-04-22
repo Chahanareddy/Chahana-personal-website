@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 const hackathons = [
-  "Hack the Valley",
-  "CursorAI Freeform",
-  "UofT Hacks 13",
-  "Queen's Hacks",
-  "Hack the Globe x BCG",
-  "Hack Canada",
-  "Technova",
+  { name: "Hack the Valley x Snowflake", badge: "Winner" },
+  { name: "CursorAI Freeform", badge: "Winner" },
+  { name: "UofT Hacks 13", badge: "Solo hacking for the first time" },
+  { name: "Queen's Hacks", badge: "" },
+  { name: "Hack the Globe x BCG", badge: "6th Place" },
+  { name: "Hack Canada", badge: "" },
+  { name: "Technova", badge: "first hackathon" },
 ];
 
 export default function HackathonsPage() {
@@ -25,16 +25,24 @@ export default function HackathonsPage() {
         </div>
 
         <p className="max-w-3xl text-slate-300">
-          Events where I build fast, collaborate, and ship projects under pressure.
+          I started hackathons, learned a lot from each one, picked up tips to build stronger projects, won a few, and plan to keep attending to learn and grow.
         </p>
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="space-y-3">
           {hackathons.map((event) => (
-            <article key={event} className="glass-panel rounded-2xl border border-white/10 p-4">
-              <div className="mb-3 flex h-32 items-center justify-center rounded-xl border border-dashed border-violet-300/45 bg-violet-500/8 text-xs tracking-wide text-violet-200 uppercase">
-                Photo Placeholder
+            <article
+              key={event.name}
+              className="glass-panel flex items-center justify-between rounded-2xl border border-white/10 px-5 py-4 transition hover:border-violet-300/55"
+            >
+              <div className="flex items-center gap-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-violet-300 shadow-[0_0_12px_rgba(196,181,253,0.9)]" />
+                <h2 className="text-base font-semibold text-slate-100 md:text-lg">{event.name}</h2>
               </div>
-              <h2 className="text-lg font-semibold">{event}</h2>
+              {event.badge ? (
+                <span className="rounded-full border border-amber-300/45 bg-amber-300/15 px-3 py-1 text-xs font-semibold tracking-wide text-amber-100">
+                  {event.badge}
+                </span>
+              ) : null}
             </article>
           ))}
         </div>

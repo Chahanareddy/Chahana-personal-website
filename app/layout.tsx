@@ -27,7 +27,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <main className="flex-1">{children}</main>
+        <footer className="border-t border-white/10 bg-black/75 px-6 py-5 text-center text-white md:px-10">
+          <p className="text-xl font-semibold leading-none md:text-2xl">&copy;hahana</p>
+        </footer>
+      </body>
     </html>
   );
 }
