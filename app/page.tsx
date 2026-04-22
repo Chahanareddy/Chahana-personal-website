@@ -5,6 +5,37 @@ export default function Home() {
     <div className="relative isolate min-h-screen overflow-hidden bg-black text-slate-100">
       <main className="flex flex-col">
         <section className="relative flex min-h-screen flex-col justify-start overflow-hidden bg-[radial-gradient(circle_at_50%_25%,rgba(30,27,75,0.3),transparent_46%),#02030a] px-6 pt-20 text-left md:px-14">
+          <div className="starfield" aria-hidden="true">
+            {Array.from({ length: 17 }, (_, i) => {
+              const rand = (seed: number) => {
+                const x = Math.sin(seed * 12.9898) * 43758.5453;
+                return x - Math.floor(x);
+              };
+              const left = rand(i + 1) * 100;
+              const top = rand(i + 101) * 88;
+              const duration = 4.5 + rand(i + 201) * 4.2;
+              const delay = rand(i + 301) * 5;
+              const size = rand(i + 401) > 0.82 ? 3 : rand(i + 501) > 0.4 ? 2 : 1;
+              return (
+                <span
+                  key={i}
+                  className="star"
+                  style={{
+                    left: `${left}%`,
+                    top: `${top}%`,
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    animationDuration: `${duration}s`,
+                    animationDelay: `${delay}s`,
+                  }}
+                />
+              );
+            })}
+            <span className="shooting-star shooting-star-one" />
+            <span className="shooting-star shooting-star-two" />
+            <span className="shooting-star shooting-star-three" />
+          </div>
+
           <div className="wave-scene" aria-hidden="true">
             <svg className="wave-svg wave-svg-back" viewBox="0 0 1600 420" preserveAspectRatio="none">
               <defs>
@@ -87,10 +118,10 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <div className="relative z-10 mx-auto mt-8 w-full max-w-6xl md:mt-12">
             <div className="max-w-2xl space-y-6">
               <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
-                Hey, I am <br></br> <span className="gradient-text">Chahana Reddy</span>
+                Hey, I am <br></br> <span className="gradient-text name-bounce">Chahana Reddy</span>
               </h1>
               <div className="typing-pill max-w-full">
                 <p className="typing-text">SYSTEMS DESIGN ENGINEERING @ UNIVERSITY OF WATERLOO</p>
@@ -98,20 +129,6 @@ export default function Home() {
               <p className="max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
                 Integrating tech with various industries.
               </p>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                className="rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:scale-[1.04] hover:shadow-[0_0_45px_rgba(168,85,247,0.5)]"
-                href="#projects"
-              >
-                View Projects
-              </a>
-              <a
-                className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:border-violet-300 hover:bg-violet-500/10"
-                href="#contact"
-              >
-                Contact Me
-              </a>
             </div>
           </div>
         </section>
