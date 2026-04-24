@@ -112,7 +112,7 @@ export default function Home() {
               Professional
             </Link>
             <Link
-              href="/personal"
+              href="/personal?burst=1"
               className="rounded-full border border-white/20 bg-white/6 px-4 py-2 text-xs font-semibold tracking-wide text-slate-200 transition hover:border-violet-300/50 hover:bg-violet-500/10"
             >
               Personal
@@ -122,7 +122,10 @@ export default function Home() {
           <div className="relative z-10 mx-auto mt-8 w-full max-w-6xl md:mt-12">
             <div className="max-w-2xl space-y-6">
               <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
-                Hey, I am <br></br> <span className="gradient-text name-bounce">Chahana Reddy</span>
+                Hey, I am <br></br>{" "}
+                <span className="gradient-text name-bounce [font-family:Georgia,'Times_New_Roman',serif]">
+                  Chahana Reddy
+                </span>
               </h1>
               <div className="typing-pill max-w-full">
                 <p className="typing-text">SYSTEMS DESIGN ENGINEERING @ UNIVERSITY OF WATERLOO</p>
@@ -143,7 +146,7 @@ export default function Home() {
                 role: "Software Engineering Intern",
                 company: "Symmetry Commerce",
                 period: "May-Aug 2026",
-                details: "Shopify migrations.",
+                details: "Shopify Plus partner.",
                 skills: [],
               },
               {
@@ -218,12 +221,12 @@ export default function Home() {
               {
                 title: "Adversor",
                 text: "Transforms product URLs into advertisements to help businesses cut marketing budgets.",
-                stack: "Tech stack: TypeScript, Next.js, React, ElevenLabs API, Gemini API.",
+                stack: "",
                 inlineTitleSuffix: "- AI Ad Generator.",
                 placement: "3rd @ cursor freeform hack",
                 link: "https://devpost.com/software/adversor",
-                imageSrc: "/images/project-adversor.png",
-                imageAlt: "Adversor product page screenshot",
+                imageSrc: "/images/project-cursor-hack.png",
+                imageAlt: "Cursor Freeform hackathon graphic",
                 tags: ["TypeScript", "Next.js", "React", "ElevenLabs API", "Gemini API"],
               },
               {

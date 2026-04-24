@@ -49,7 +49,7 @@ export default function ActivePage() {
 
         <div className="max-w-3xl space-y-2">
           <p className="text-slate-300">
-            I love exploring new places to stay active, especially in the summer.
+            I love exploring new places to stay active & creative, especially in the summer.
           </p>
           <p className="text-slate-400">Here&apos;s how I stay active:</p>
         </div>
@@ -67,8 +67,8 @@ export default function ActivePage() {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-xs tracking-wide text-violet-200 uppercase">
-                    Photo Placeholder
+                  <div className="flex h-full items-center justify-center text-2xl text-slate-400">
+                    📷
                   </div>
                 )}
               </div>
