@@ -1,7 +1,54 @@
 import Link from "next/link";
 import Image from "next/image";
 
+type ProjectCard = {
+  title: string;
+  text: string;
+  stack: string;
+  inlineTitleSuffix: string;
+  placement?: string;
+  link?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  videoSrc?: string;
+  tags?: string[];
+};
+
 export default function Home() {
+  const projects: ProjectCard[] = [
+    {
+      title: "Ecotoken",
+      text: "Extension that optimizes LLM user prompts, reducing token usage and estimating environment savings in CO2/water.",
+      stack: "",
+      inlineTitleSuffix: "- AI prompt optimizer.",
+      placement: "1st @ Hack the Valley X Snowflake",
+      link: "https://devpost.com/software/ecotoken-gb0ecp",
+      imageSrc: "/images/project-ecotoken.png",
+      imageAlt: "EcoToken extension dashboard screenshot",
+      tags: ["Snowflake API", "Node.js", "Next.js", "TypeScript", "SQL"],
+    },
+    {
+      title: "Adversor",
+      text: "Transforms product URLs into advertisements to help businesses cut marketing budgets.",
+      stack: "",
+      inlineTitleSuffix: "- AI Ad Generator.",
+      placement: "3rd @ cursor freeform hack",
+      link: "https://devpost.com/software/adversor",
+      imageSrc: "/images/project-cursor-hack.png",
+      imageAlt: "Cursor Freeform hackathon graphic",
+      tags: ["TypeScript", "Next.js", "React", "ElevenLabs API", "Gemini API"],
+    },
+    {
+      title: "Slot Machine",
+      text: "Console-based slot machine game in Java.",
+      stack: "",
+      inlineTitleSuffix: "- Console-based slot machine game in Java.",
+      videoSrc: "/images/slotmachinedemo.mp4",
+      tags: ["Java", "OOP", "File Handling"],
+      link: "https://github.com/Chahanareddy/SlotMachine",
+    },
+  ];
+
   return (
     <div className="relative isolate min-h-screen overflow-hidden bg-black text-slate-100">
       <main className="flex flex-col">
@@ -206,38 +253,7 @@ export default function Home() {
         <section id="projects" className="space-y-6">
           <h2 className="text-3xl font-semibold md:text-4xl">Projects</h2>
           <div className="grid gap-4 lg:grid-cols-3">
-            {[
-              {
-                title: "Ecotoken",
-                text: "Extension that optimizes LLM user prompts, reducing token usage and estimating environment savings in CO2/water.",
-                stack: "",
-                inlineTitleSuffix: "- AI prompt optimizer.",
-                placement: "1st @ Hack the Valley X Snowflake",
-                link: "https://devpost.com/software/ecotoken-gb0ecp",
-                imageSrc: "/images/project-ecotoken.png",
-                imageAlt: "EcoToken extension dashboard screenshot",
-                tags: ["Snowflake API", "Node.js", "Next.js", "TypeScript", "SQL"],
-              },
-              {
-                title: "Adversor",
-                text: "Transforms product URLs into advertisements to help businesses cut marketing budgets.",
-                stack: "",
-                inlineTitleSuffix: "- AI Ad Generator.",
-                placement: "3rd @ cursor freeform hack",
-                link: "https://devpost.com/software/adversor",
-                imageSrc: "/images/project-cursor-hack.png",
-                imageAlt: "Cursor Freeform hackathon graphic",
-                tags: ["TypeScript", "Next.js", "React", "ElevenLabs API", "Gemini API"],
-              },
-              {
-                title: "Slot Machine",
-                text: "Console-based slot machine game in Java.",
-                inlineTitleSuffix: "- Console-based slot machine game in Java.",
-                videoSrc: "/images/slotmachinedemo.mp4",
-                tags: ["Java", "OOP", "File Handling"],
-                link: "https://github.com/Chahanareddy/SlotMachine",
-              },
-            ].map((project) => {
+            {projects.map((project) => {
               const isGithubLink = Boolean(project.link?.includes("github.com"));
               return (
               <article

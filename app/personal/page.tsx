@@ -1,37 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 
-type ShardStyle = {
-  "--x": string;
-  "--y": string;
-  "--delay": string;
-  "--dur": string;
-  "--rot": string;
-  "--floatY": string;
-  "--scale": string;
-  "--size": string;
-  "--blur": string;
-  "--radius": string;
-  "--driftX": string;
-};
+type ShardStyle = CSSProperties & Record<`--${string}`, string>;
 
 export default function PersonalPage() {
-  const searchParams = useSearchParams();
-  const shouldBurst = searchParams.get("burst") === "1";
-  const [showBurst, setShowBurst] = useState(shouldBurst);
+  const [showBurst, setShowBurst] = useState(false);
   const rocketRef = useRef<HTMLSpanElement | null>(null);
   const phase: "burst" | "done" = showBurst ? "burst" : "done";
 
   useEffect(() => {
+    const shouldBurst = new URLSearchParams(window.location.search).get("burst") === "1";
     if (!shouldBurst) return;
+    setShowBurst(true);
     const doneTimer = window.setTimeout(() => setShowBurst(false), 1500);
     return () => {
       window.clearTimeout(doneTimer);
     };
-  }, [shouldBurst]);
+  }, []);
 
   useEffect(() => {
     const rocket = rocketRef.current;
