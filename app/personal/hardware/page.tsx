@@ -71,10 +71,10 @@ export default function HardwarePage() {
           </div>
           <h2 className="text-xl font-semibold">Automatic Lid Opener</h2>
           <p className="mt-2 text-slate-300">
-            A touchless garbage bin that uses an ultrasonic sensor and SG90 servo to
+            A touchless garbage bin that uses an <strong>ultrasonic sensor</strong> and <strong>SG90 servo</strong> to
             automatically open/close the lid.
             <br />
-            CAD-modeled bin and mechanical parts in SolidWorks and 3D printed in PLA.
+            CAD-modeled bin and mechanical parts in <strong>SolidWorks</strong> and 3D printed in PLA.
           </p>
 
           <div className="mt-5 grid gap-5 md:grid-cols-1">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type ShardStyle = {
   "--x": string;
@@ -19,12 +19,74 @@ type ShardStyle = {
 
 export default function PersonalPage() {
   const [phase, setPhase] = useState<"burst" | "done">("burst");
+  const rocketRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const doneTimer = window.setTimeout(() => setPhase("done"), 1500);
     return () => {
       window.clearTimeout(doneTimer);
     };
+  }, []);
+
+  useEffect(() => {
+    const rocket = rocketRef.current;
+    if (!rocket) return;
+
+    const rocketWidth = 24;
+    const rocketHeight = 10;
+    let rafId = 0;
+    let lastTs = 0;
+    let x = window.innerWidth * 0.28;
+    let y = window.innerHeight * 0.46;
+    const speed = 128;
+    let angle = Math.random() * Math.PI * 2;
+
+    const randomNudge = () => (Math.random() - 0.5) * 0.44;
+
+    const updateRocket = () => {
+      const rotationDeg = (Math.atan2(vy, vx) * 180) / Math.PI;
+      rocket.style.setProperty("--rx", `${x}px`);
+      rocket.style.setProperty("--ry", `${y}px`);
+      rocket.style.setProperty("--rrot", `${rotationDeg.toFixed(2)}deg`);
+    };
+
+    let vx = Math.cos(angle) * speed;
+    let vy = Math.sin(angle) * speed;
+    updateRocket();
+
+    const tick = (ts: number) => {
+      if (!lastTs) lastTs = ts;
+      const dt = Math.min((ts - lastTs) / 1000, 0.03);
+      lastTs = ts;
+
+      x += vx * dt;
+      y += vy * dt;
+
+      const maxX = window.innerWidth - rocketWidth;
+      const maxY = window.innerHeight - rocketHeight;
+
+      if (x <= 0 || x >= maxX) {
+        x = Math.max(0, Math.min(x, maxX));
+        vx *= -1;
+        angle = Math.atan2(vy, vx) + randomNudge();
+        vx = Math.cos(angle) * speed;
+        vy = Math.sin(angle) * speed;
+      }
+
+      if (y <= 0 || y >= maxY) {
+        y = Math.max(0, Math.min(y, maxY));
+        vy *= -1;
+        angle = Math.atan2(vy, vx) + randomNudge();
+        vx = Math.cos(angle) * speed;
+        vy = Math.sin(angle) * speed;
+      }
+
+      updateRocket();
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    rafId = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(rafId);
   }, []);
 
   const shards = useMemo(
@@ -64,7 +126,7 @@ export default function PersonalPage() {
   return (
     <div className="personal-shell min-h-screen bg-black text-slate-100">
       <div className="mini-rocket-wrap" aria-hidden="true">
-        <span className="mini-rocket" />
+        <span ref={rocketRef} className="mini-rocket" />
       </div>
       {phase !== "done" ? (
         <div className="blast-overlay" aria-hidden="true">
