@@ -194,16 +194,43 @@ export default function Home() {
           <h2 className="text-3xl font-semibold md:text-4xl">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {[
-              { title: "Ecotoken", text: "AI prompt optimizer." },
-              { title: "Adversor", text: "AI Ad Generator." },
-              { title: "Slot Machine", text: "Console-based slot machine game in Java." },
+              {
+                title: "Ecotoken",
+                text: "",
+                inlineTitleSuffix: "- AI prompt optimizer.",
+                placement: "1st @ Hack the Valley X Snowflake",
+              },
+              {
+                title: "Adversor",
+                text: "",
+                inlineTitleSuffix: "- AI Ad Generator.",
+                placement: "3rd @ cursor freeform hack",
+              },
+              {
+                title: "Slot Machine",
+                text: "",
+                inlineTitleSuffix: "- Console-based slot machine game in Java.",
+              },
             ].map((project) => (
               <article
                 key={project.title}
                 className="tilt-card glass-panel rounded-2xl border border-white/10 p-6 transition duration-300 hover:border-fuchsia-300/60"
               >
-                <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-200">{project.text}</p>
+                <h3 className="text-lg font-semibold text-white">
+                  {project.title}
+                  {project.inlineTitleSuffix ? (
+                    <span className="ml-1 text-sm leading-relaxed font-normal text-slate-200">
+                      {project.inlineTitleSuffix}
+                    </span>
+                  ) : null}
+                </h3>
+                {project.placement ? (
+                  <div className="mt-2 inline-flex items-center gap-2 rounded-lg border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs font-medium text-violet-100">
+                    <span aria-hidden="true">🏆</span>
+                    <span>{project.placement}</span>
+                  </div>
+                ) : null}
+                {project.text ? <p className="mt-2 text-sm leading-relaxed text-slate-200">{project.text}</p> : null}
               </article>
             ))}
           </div>

@@ -387,8 +387,79 @@ body {
   transform: translateY(-1px);
 }
 
+.personal-nav-button {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.personal-nav-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-105%);
+  background: linear-gradient(105deg, transparent 30%, rgb(196 181 253 / 0.22) 48%, transparent 66%);
+  transition: transform 420ms ease;
+  pointer-events: none;
+}
+
+.personal-nav-button:hover {
+  transform: translateY(-2px) translateX(2px);
+  box-shadow: 0 0 0 1px rgb(196 181 253 / 0.22), 0 10px 24px rgb(124 58 237 / 0.24);
+}
+
+.personal-nav-button:hover::after {
+  transform: translateX(105%);
+}
+
 .personal-shell {
   background: radial-gradient(circle at 40% 25%, rgb(76 29 149 / 0.22), transparent 38%), #02030a;
+}
+
+.mini-rocket-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mini-rocket {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 10px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgb(226 232 240 / 0.92), rgb(167 139 250 / 0.88));
+  box-shadow: 0 0 12px rgb(196 181 253 / 0.5);
+  transform: rotate(-15deg);
+  opacity: 0.7;
+  animation: mini-rocket-fly 12s linear infinite;
+}
+
+.mini-rocket::before {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 1px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 8px solid rgb(226 232 240 / 0.9);
+}
+
+.mini-rocket::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 3px;
+  width: 8px;
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgb(251 191 36 / 0.95), rgb(248 113 113 / 0.2));
+  filter: blur(0.4px);
 }
 
 .blast-overlay {
@@ -444,6 +515,35 @@ body {
   100% {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@keyframes mini-rocket-fly {
+  0% {
+    transform: translate(2vw, 78vh) rotate(-35deg) scale(0.95);
+    opacity: 0.62;
+  }
+  24% {
+    transform: translate(90vw, 4vh) rotate(-35deg) scale(1);
+  }
+  25% {
+    transform: translate(90vw, 4vh) rotate(95deg) scale(1);
+  }
+  49% {
+    transform: translate(90vw, 80vh) rotate(95deg) scale(0.98);
+  }
+  50% {
+    transform: translate(90vw, 80vh) rotate(-160deg) scale(0.98);
+  }
+  74% {
+    transform: translate(2vw, 8vh) rotate(-160deg) scale(1);
+  }
+  75% {
+    transform: translate(2vw, 8vh) rotate(35deg) scale(1);
+  }
+  100% {
+    transform: translate(2vw, 78vh) rotate(35deg) scale(0.95);
+    opacity: 0.62;
   }
 }
 

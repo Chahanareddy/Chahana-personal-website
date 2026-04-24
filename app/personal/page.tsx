@@ -63,6 +63,9 @@ export default function PersonalPage() {
 
   return (
     <div className="personal-shell min-h-screen bg-black text-slate-100">
+      <div className="mini-rocket-wrap" aria-hidden="true">
+        <span className="mini-rocket" />
+      </div>
       {phase !== "done" ? (
         <div className="blast-overlay" aria-hidden="true">
           <div className="blast-core" />
@@ -88,7 +91,7 @@ export default function PersonalPage() {
       </div>
 
       <main
-        className={`mx-auto flex min-h-screen w-full max-w-6xl items-center px-6 py-20 transition-opacity duration-500 md:px-12 ${
+        className={`relative z-10 mx-auto flex min-h-screen w-full max-w-6xl items-center px-6 py-20 transition-opacity duration-500 md:px-12 ${
           phase === "done" ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -101,22 +104,22 @@ export default function PersonalPage() {
             Explore my personal life through hobbies, side projects, and what I am up to!
           </p>
 
-          <div className="flex max-w-xl flex-col gap-3 pt-2">
+          <div className="flex max-w-xl flex-col gap-3 pt-1">
             <Link
               href="/personal/active"
-              className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
+              className="personal-nav-button contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
             >
               Active
             </Link>
             <Link
               href="/personal/hardware"
-              className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
+              className="personal-nav-button contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
             >
               Hardware
             </Link>
             <Link
               href="/personal/hackathons"
-              className="contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
+              className="personal-nav-button contact-pill w-full border-violet-300/65 bg-violet-500/14 px-5 py-3 text-left text-base font-semibold text-violet-100 hover:bg-violet-500/24"
             >
               Hackathons
             </Link>
