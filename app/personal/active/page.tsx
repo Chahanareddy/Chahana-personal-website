@@ -9,7 +9,7 @@ const activeSections: {
 }[] = [
   {
     title: "Gym",
-    lines: ["STAIRMASTER"],
+    lines: ["💪"],
   },
   {
     title: "Early morning runs",
@@ -27,7 +27,7 @@ const activeSections: {
   },
   {
     title: "Exploring - walks and road trips",
-    lines: ["I took that pic on a late night walk in Waterloo (shocking)"],
+    lines: ["I took that pic on a walk in Waterloo (shocking)"],
     imageSrc: "/images/active-exploring.png",
     imageAlt: "Waterfront view during a road trip",
   },
