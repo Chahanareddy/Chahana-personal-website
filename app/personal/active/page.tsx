@@ -13,21 +13,21 @@ const activeSections: {
   },
   {
     title: "Early morning runs",
-    lines: ["5am runs"],
+    lines: ["🏃"],
   },
   {
     title: "Swimming",
-    lines: ["Retired competitive swimmer"],
+    lines: ["🏊"],
     imageSrc: "/images/active-swimming.png",
     imageAlt: "Indoor swimming pool lanes",
   },
   {
     title: "Hiking",
-    lines: ["TELL ME YOUR FAV HIKING PATH"],
+    lines: ["🧗"],
   },
   {
     title: "Exploring - walks and road trips",
-    lines: ["I took that pic on a walk in Waterloo (shocking)"],
+    lines: ["🌿"],
     imageSrc: "/images/active-exploring.png",
     imageAlt: "Waterfront view during a road trip",
   },
